@@ -1,11 +1,37 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import { useState } from "react";
+import { Inter } from "next/font/google";
+import {
+  DangerButton,
+  TextButton,
+  PrimaryButton,
+  SecondaryButton,
+  TertiaryButton,
+} from "@/components/Buttons";
+import { SearchField } from "@/components/Fields";
 
-const inter = Inter({ subsets: ['latin'] })
+import { PrimaryPill, SecondaryPill, TertiaryPill } from "@/components/Pills";
+
+import { HorizontalSelection, VerticalSelection } from "@/components/Selection";
+
+import styles from "@/styles/Home.module.scss";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [theme, setTheme] = useState("theme-light");
+
+  function toggleTheme() {
+    if (theme === "theme-light") {
+      document.body.classList.remove("light");
+
+      setTheme("theme-dark");
+    } else {
+      document.body.classList.add("light");
+      setTheme("theme-light");
+    }
+  }
+
   return (
     <>
       <Head>
@@ -14,101 +40,138 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.js</code>
+      <div
+        style={{
+          marginLeft: "20px",
+        }}
+      >
+        <button
+          style={{
+            position: "fixed",
+            Top: "0",
+            right: "0vw",
+          }}
+          className={styles.buttons}
+          onClick={toggleTheme}
+        >
+          Toggle Theme
+        </button>
+        <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+            marginTop: "1rem",
+            flexDirection: "column",
+          }}
+        >
+          <h1>Heading h1</h1>
+
+          <h2>Heading h2</h2>
+
+          <h3>Heading h3</h3>
+
+          <h4>Heading h4</h4>
+
+          <h5>Heading h5</h5>
+
+          <h6>Heading h6</h6>
+
+          <p style={{ maxWidth: "500px" }}>
+            Paragraph Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consectetur, modi. Consequatur est dicta hic obcaecati deserunt!
+            Quibusdam a perferendis ad incidunt deleniti laborum adipisci sunt
+            alias, veniam voluptates? Rerum est reiciendis beatae illum
+            quibusdam! Distinctio esse facere, totam incidunt sint provident
+            unde quia rem blanditiis autem ex sed illo architecto!
           </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
+
+          <div style={{ width: "250px" }}>
+            <PrimaryButton onClick={() => console.log("clicked")}>
+              <span>😋</span>
+              <span>PrimaryButton</span>
+            </PrimaryButton>
           </div>
+
+          <div style={{ width: "250px" }}>
+            <SecondaryButton onClick={() => console.log("clicked")}>
+              <span>SecondaryButton</span>
+            </SecondaryButton>
+          </div>
+
+          <div style={{ width: "250px" }}>
+            <TertiaryButton>
+              <span>TertiaryButton</span>
+            </TertiaryButton>
+          </div>
+
+          <div style={{ width: "250px" }}>
+            <DangerButton>
+              <span>DangerButton</span>
+            </DangerButton>
+          </div>
+
+          <div style={{ width: "250px" }}>
+            <TextButton>
+              <span>TextButton</span>
+            </TextButton>
+          </div>
+
+          <PrimaryPill>
+            <span>PrimaryPill</span>
+          </PrimaryPill>
+
+          <SecondaryPill>
+            <span>SecondaryPill</span>
+          </SecondaryPill>
+
+          <TertiaryPill>
+            <span>TertiaryPill</span>
+            <span>🐓</span>
+          </TertiaryPill>
+
+          <div
+            style={{
+              width: "85%",
+              display: "flex",
+            }}
+          >
+            <HorizontalSelection>
+              <span onClick={() => console.log("clicked")}>Selection1</span>
+              <span>
+                <span>🌼</span>
+                Horizontal
+              </span>
+              <span>Selection</span>
+              <span>Selection3</span>
+            </HorizontalSelection>
+          </div>
+
+          <div
+            style={{
+              height: "70vh",
+            }}
+          >
+            <VerticalSelection>
+              <span>Selection1</span>
+              <span onClick={() => console.log("clicked")}>
+                <span>🦥</span>
+                Verical
+              </span>
+              <span>Selection</span>
+              <span>Selection3</span>
+            </VerticalSelection>
+          </div>
+
+          <form>
+            <SearchField
+              onClick={() => console.log("clicked")}
+              onInput={(e) => console.log(e.target.value)}
+            />
+          </form>
+
+          <br />
         </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+      </div>
     </>
-  )
+  );
 }

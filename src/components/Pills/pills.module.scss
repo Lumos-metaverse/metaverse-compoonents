@@ -1,0 +1,43 @@
+.primary,
+.Secondary,
+.Tertiary {
+  cursor: default;
+  width: fit-content;
+  padding: 7px 10px 5px 10px;
+  border-radius: 10000000px;
+  opacity: 0.75;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  span {
+    font-size: 0.7rem;
+    font-weight: 300;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.primary {
+  background-color: var(--accent_base);
+  span {
+    color: var(--text_primary);
+  }
+}
+
+.Secondary {
+  background-color: var(--accent_focus);
+  span {
+    color: var(--text_secondary);
+    font-weight: 400;
+  }
+}
+
+.Tertiary {
+  background-color: var(--transparent);
+  span {
+    color: var(--text_primary);
+  }
+}
