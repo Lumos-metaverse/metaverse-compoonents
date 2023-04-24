@@ -10,14 +10,14 @@
   text-size-adjust: 100%;
 }
 body {
-  --accent_focus: #0fcfed;
-  --accent_base: #3500cd;
+  --accent_focus: #00c6f4;
+  --accent_base: #882eff;
   --accent_comp: #4463d1;
   --base: #0b031c;
-  --base_focus: #230743;
+  --base_focus: #36104c;
   --text_primary: #eeeeee;
   --text_secondary: #121212;
-  --danger: #bc2323;
+  --danger: #ff04c8;
   --transparent: #ffffff38;
   font-family: "Lato", sans-serif;
   margin: 0;
