@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url(./fonts.css);
 
 * {
   box-sizing: border-box;
-  font-family: "Lato", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 20px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: auto;
@@ -19,7 +20,7 @@ body {
   --text_secondary: #121212;
   --danger: #ff04c8;
   --transparent: #ffffff38;
-  font-family: "Lato", sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
   background-color: var(--base);
@@ -64,31 +65,37 @@ body.light {
 }
 
 h1 {
+  font-family: Brinnan;
   font-size: 2em;
   font-weight: 900;
 }
 
 h2 {
+  font-family: Brinnan;
   font-size: 1.5em;
   font-weight: 700;
 }
 
 h3 {
+  font-family: Brinnan;
   font-size: 1.17em;
   font-weight: 700;
 }
 
 h4 {
+  font-family: Brinnan;
   font-size: 1em;
   font-weight: 700;
 }
 
 h5 {
+  font-family: Brinnan;
   font-size: 0.83em;
   font-weight: 400;
 }
 
 h6 {
+  font-family: Brinnan;
   font-size: 0.67em;
   font-weight: 400;
 }
