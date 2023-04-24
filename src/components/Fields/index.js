@@ -30,6 +30,7 @@ export function InputField(props) {
   return (
     <div className={styles.input_field_container}>
       <input
+        onClick={props.onClick}
         onInput={props.onInput}
         type={props.type}
         placeholder={props.placeholder}
@@ -46,6 +47,148 @@ export function TextAreaField(props) {
         type={props.type}
         placeholder={props.placeholder}
       />
+    </div>
+  );
+}
+
+export function SelectField(props) {
+  return (
+    <div className={styles.select_field_container}>
+      <select onChange={props.onChange}>
+        {props.options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+export function DisplayField(props) {
+  return (
+    <div className={styles.display_field_container}>
+      <span>{props.value}</span>
+    </div>
+  );
+}
+
+export function CheckboxField(props) {
+  return (
+    <div className={styles.checkbox_field_container}>
+      <input
+        onChange={props.onChange}
+        type="checkbox"
+        id={props.id}
+        name={props.name}
+        value={props.value}
+      />
+      <label htmlFor={props.id}>{props.label}</label>
+    </div>
+  );
+}
+
+export function RadioField(props) {
+  return (
+    <div className={styles.radio_field_container}>
+      <input
+        onChange={props.onChange}
+        type="radio"
+        id={props.id}
+        name={props.name}
+        value={props.value}
+      />
+      <label htmlFor={props.id}>{props.label}</label>
+    </div>
+  );
+}
+
+export function SwitchField(props) {
+  return (
+    <div className={styles.switch_field_container}>
+      <input
+        onChange={props.onChange}
+        type="checkbox"
+        id={props.id}
+        name={props.name}
+        value={props.value}
+      />
+      <label htmlFor={props.id}>{props.label}</label>
+    </div>
+  );
+}
+
+export function ColorSelectorField(props) {
+  return (
+    <div className={styles.color_selector_field_container}>
+      <input
+        onChange={props.onChange}
+        type="color"
+        id={props.id}
+        name={props.name}
+        value={props.value}
+      />
+      <label htmlFor={props.id}>{props.label}</label>
+    </div>
+  );
+}
+
+export function DateField(props) {
+  return (
+    <div className={styles.date_field_container}>
+      <input
+        onChange={props.onChange}
+        type="date"
+        id={props.id}
+        name={props.name}
+        value={props.value}
+      />
+      <label htmlFor={props.id}>{props.label}</label>
+    </div>
+  );
+}
+
+export function TimeField(props) {
+  return (
+    <div className={styles.time_field_container}>
+      <input
+        onChange={props.onChange}
+        type="time"
+        id={props.id}
+        name={props.name}
+        value={props.value}
+      />
+      <label htmlFor={props.id}>{props.label}</label>
+    </div>
+  );
+}
+
+export function RangeField(props) {
+  return (
+    <div className={styles.range_field_container}>
+      <input
+        onChange={props.onChange}
+        type="range"
+        id={props.id}
+        name={props.name}
+        value={props.value}
+      />
+      <label htmlFor={props.id}>{props.label}</label>
+    </div>
+  );
+}
+
+export function FileField(props) {
+  return (
+    <div className={styles.file_field_container}>
+      <input
+        onChange={props.onChange}
+        type="file"
+        id={props.id}
+        name={props.name}
+        value={props.value}
+      />
+      <label htmlFor={props.id}>{props.label}</label>
     </div>
   );
 }

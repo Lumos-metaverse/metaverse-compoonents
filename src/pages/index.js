@@ -8,7 +8,15 @@ import {
   SecondaryButton,
   TertiaryButton,
 } from "@/components/Buttons";
-import { SearchField } from "@/components/Fields";
+import {
+  SearchField,
+  InputField,
+  TextAreaField,
+  SelectField,
+  DisplayField,
+} from "@/components/Fields";
+
+import ProgressBar from "@/components/Progress";
 
 import { PrimaryPill, SecondaryPill, TertiaryPill } from "@/components/Pills";
 
@@ -31,6 +39,8 @@ export default function Home() {
       setTheme("theme-light");
     }
   }
+
+  const [value, setValue] = useState("Hello World");
 
   return (
     <>
@@ -168,6 +178,47 @@ export default function Home() {
               onInput={(e) => console.log(e.target.value)}
             />
           </form>
+
+          <form
+            style={{
+              width: "250px",
+            }}
+          >
+            <InputField
+              type="email"
+              placeholder="email"
+              onClick={() => console.log("clicked")}
+              onInput={(e) => console.log(e.target.value)}
+            />
+          </form>
+
+          <form
+            style={{
+              width: "450px",
+            }}
+          >
+            <TextAreaField
+              onClick={() => console.log("clicked")}
+              onInput={(e) => console.log(e.target.value)}
+            />
+          </form>
+
+          <form>
+            <DisplayField value={value} />
+
+            <SelectField
+              options={[
+                { value: "1", label: "Option 1" },
+                { value: "2", label: "Option 2" },
+                { value: "3", label: "Option 3" },
+              ]}
+              onChange={(e) => {
+                setValue(e.target.value);
+              }}
+            />
+          </form>
+
+          <ProgressBar progress={10}></ProgressBar>
 
           <br />
         </div>
